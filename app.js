@@ -27,7 +27,7 @@ app.use(express.json());
 app.get('/users', (req, res) => {
     //7.res.json : automatically writes a json in response including stringify. And status 
     res.status(201).json({
-        users,
+        users
     });
     //8. No need to end the response, response already ended with express js
 });
@@ -50,6 +50,19 @@ app.post('/users', (req, res) => {
     users.push(newUser)
 
     res.status(201).json({ newUser })
+});
+
+// resolved Exercise 
+app.post('/posts', (req, res) => {
+    const { title } = req.body;
+    const newPost = {
+        id: Math.floor(Math.random() * 1000),
+        title
+    };
+
+    posts.push(newPost)
+
+    res.status(202).json({ newPost })
 })
 
 //4. app already listens to petitions in PORT  / and call back
