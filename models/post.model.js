@@ -1,5 +1,26 @@
-const posts = [
-    {id: 1, title: 'Hello world'},
-    {id: 2, title: 'hello nature'},
-    {id: 3, title: 'hello people'},
-];
+const { DataTypes } = require('sequelize');
+const { db } = require('../utils/database')
+
+const Post = db.define('post', {
+    id:{
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+        type: DataTypes.INTEGER
+    },
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    content: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    userId: { // userId determines Which user created the post
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },  
+});
+
+
+module.exports = { Post }
