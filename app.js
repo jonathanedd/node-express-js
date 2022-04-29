@@ -1,9 +1,11 @@
 //1. Import express through require method
 const express = require('express');
+const { postsRouter } = require('./routes/posts.route');
 
 
 
-//Rouetrs
+
+//Routers
 const { usersRouter } = require('./routes/users.routes');
 
 //utils 
@@ -20,7 +22,8 @@ app.use(express.json());
 
 // Endpints
 // http://localhost:4000/api/v1/users 
-app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/posts', postsRouter);
 
 //9
 // app.get('/posts', (req, res) => {
@@ -29,17 +32,17 @@ app.use('/api/v1/users', usersRouter)
 
 
 // resolved Exercise 
-app.post('/posts', (req, res) => {
-    const { title } = req.body;
-    const newPost = {
-        id: Math.floor(Math.random() * 1000),
-        title
-    };
+// app.post('/posts', (req, res) => {
+//     const { title } = req.body;
+//     const newPost = {
+//         id: Math.floor(Math.random() * 1000),
+//         title
+//     };
 
-    posts.push(newPost)
+//     posts.push(newPost)
 
-    res.status(202).json({ newPost })
-});
+//     res.status(202).json({ newPost })
+// });
 
  
 

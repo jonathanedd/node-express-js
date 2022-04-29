@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { db } = require('../utils/database')
+const { db } = require('../utils/database');
 
 const Post = db.define('post', {
     id:{
@@ -19,8 +19,12 @@ const Post = db.define('post', {
     userId: { // userId determines Which user created the post
         type: DataTypes.INTEGER,
         allowNull: false
-    },  
+    },
+    status:{
+        type: DataTypes.STRING,
+        defaultValue: 'Active'
+    }  
 });
 
 
-module.exports = { Post }
+module.exports = { Post };

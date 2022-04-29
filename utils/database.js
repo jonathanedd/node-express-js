@@ -1,7 +1,7 @@
 //MODULE GOOD PRACTICE JUST ONE CONNECTION TO DATABASE
 
 // 12. connect Sequelize
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
 
 
 // Connect to the database
